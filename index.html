@@ -10,9 +10,16 @@
     <link rel="stylesheet" href="./styles/standart.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/bascet.css">
+
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/bascet.js"></script>
+
+    
 </head>
 
-<body>
+<body onload="init()">
     <header class="headlineicon-navbar">
         <img src="./assets/icons/Logo/Logo.png" alt="logo">
         <a class="burgermenu" href="">
@@ -32,7 +39,7 @@
                 </div>
             </header>
             <div class="title-overflow-img">
-                <h2>Pizza Paradiso </h2>
+                <h1>Pizza Paradiso </h1>
             </div>
             <img src="" alt="">
             <nav class="navigation-food">
@@ -46,14 +53,7 @@
                     <h2>Hauptgerichte</h2>
                 </div>
 
-                <section id="main-content">
-                    <div>
-                        <h3>Headline Gericht</h3>
-                        <p>Beschreibung </p>
-                        <p>Kosten</p>
-                    </div>
-                    <button id="add-count"></button>
-                </section>
+                <section id="main-content"></section>
 
                 <section class="beilagen">
                     <img src="./assets/img/Beilagen.jpg" alt="beilagen-img">
@@ -62,7 +62,22 @@
 
             </section>
         </section>
-         <section class="bascet"></section>
+        <aside class="bascet">
+            <h3 class="bascet-headline">Warenkorb</h3>
+            <li>
+                <h4>name Produkt</h4>
+                <div>
+                    <button>-</button>
+                    <p>count</p>
+                    <button>+</button>
+                </div>
+                <div>
+                    <p>betrag</p>
+                    <button>löschen</button>
+                </div>
+
+            </li>
+        </aside>
     </main>
     <footer></footer>
 
