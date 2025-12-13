@@ -1,3 +1,27 @@
 .bascet {
     width: 20%;
 }
+
+.bascet-list {
+    padding-top: 5px;
+}
+
+.bascet-product-name {
+    padding-left: 5px;
+}
+.bascet-product {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.bascet-count {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bascet-price {
+    display: flex;
+    gap: 4px;
+}

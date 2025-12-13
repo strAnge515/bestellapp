@@ -11,12 +11,8 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/bascet.css">
 
-    <script src="./scripts/db.js"></script>
-    <script src="./scripts/template.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/bascet.js"></script>
 
-    
+
 </head>
 
 <body onload="init()">
@@ -30,12 +26,13 @@
     </header>
 
     <main>
-       
+
         <section class="left-side-container">
             <header>
                 <div class="head-img-wrapper">
-                    <img  class="head-img-order" src="./assets/img/Pizzeria.jpg" alt="logo-pizzeria">
-                    <img class="overflow-img" src="./assets/img/—Pngtree—pizza logo design_8363624.png" alt="logo-piieria-2">
+                    <img class="head-img-order" src="./assets/img/Pizzeria.jpg" alt="logo-pizzeria">
+                    <img class="overflow-img" src="./assets/img/—Pngtree—pizza logo design_8363624.png"
+                        alt="logo-piieria-2">
                 </div>
             </header>
             <div class="title-overflow-img">
@@ -64,23 +61,15 @@
         </section>
         <aside class="bascet">
             <h3 class="bascet-headline">Warenkorb</h3>
-            <li>
-                <h4>name Produkt</h4>
-                <div>
-                    <button>-</button>
-                    <p>count</p>
-                    <button>+</button>
-                </div>
-                <div>
-                    <p>betrag</p>
-                    <button>löschen</button>
-                </div>
-
-            </li>
+            <section id="bascet-content"></section>
         </aside>
     </main>
     <footer></footer>
 
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/bascet.js"></script>
 
 </body>
 
