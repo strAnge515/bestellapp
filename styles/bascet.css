@@ -24,4 +24,32 @@
 .bascet-price {
     display: flex;
     gap: 4px;
+    align-items: center;
 }
+
+.bascet-product button {
+    border: none;
+    background-color: white;
+    color: orange;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px 0 20px;
+}
+
+.shipping-costs {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px 0 20px;
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px 0 20px;
+}
+

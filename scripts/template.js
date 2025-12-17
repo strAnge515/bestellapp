@@ -27,6 +27,7 @@ function generateTemplate() {
 function generateBascetTemplate(i) {
     let bascetContent = document.getElementById("bascet-content");
     const dish = myDishes[i]
+    const price = myDishesPrice(dish);
     bascetContent.innerHTML += `
                 <ul class="bascet-list">
                     <h4 class="bascet-product-name">${dish.name}</h4>
@@ -37,8 +38,8 @@ function generateBascetTemplate(i) {
                             <button class="add-count-bascet"  data-index="${i}">+</button>
                         </div>
                         <div class="bascet-price">
-                            <p>${dish.price.toFixed(2)} €</p>
-                            <button class="delete-button" data-index="${i}">löschen</button>
+                            <p class="my-dishes-price">${price} €</p>
+                            <button class="delete-button" data-index="${i}">&#128465;</button>
                         </div>
                     </section>
                 </ul>
@@ -46,4 +47,3 @@ function generateBascetTemplate(i) {
     `
 
 }
-
