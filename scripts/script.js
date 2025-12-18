@@ -7,6 +7,8 @@ function init() {
     getFromLocalStorage();
     generateTemplate();
     setButtonListeners(".add-count");
+    generateTotalTemplate();
+
 
 }
 
@@ -50,8 +52,9 @@ function setButtonListeners(selector) {
 }
 
 function itemAmount(index, amount) {
-    myDishes[index].count = myDishes[index].count + amount;
+    myDishes[index].count += amount;
     showBascetItems();
+    renderTotalPrice();
     localStorage.setItem("myDishes", JSON.stringify(myDishes));
 }
 
@@ -64,18 +67,55 @@ function getFromLocalStorage() {
 }
 
 function myDishesPrice(dish) {
- let count = ((dish.price) * (dish.count)).toFixed(2);
+    let count = ((dish.price) * (dish.count)).toFixed(2);
     return count;
 }
 
 function calculateSubtotal(dishes) {
- let subtotal = 0;
+    let subtotal = 0;
 
- for (const dish of dishes) {
-    subtotal += (dish.price) * (dish.count)
- }
- return subtotal;
+    for (const dish of dishes) {
+        subtotal += (dish.price) * (dish.count)
+    }
+    return subtotal;
 }
+
+function calculateShipping(subtotal) {
+    let shipping = 4.99;
+    if (subtotal >= 20) {
+        shipping = 0;
+    }
+    return shipping;
+}
+
+function calculateTotal(subtotal, shipping) {
+    return subtotal + shipping;
+}
+
+function renderBasket() {
+    const content = document.getElementById("bascet-content");
+    content.innerHTML = "";
+
+    for (let i = 0; i < myDishes.length; i++) {
+        if (myDishes[i].count > 0) {
+            generateBascetTemplate(i);
+        }
+    }
+
+}
+
+function renderTotalPrice() {
+    const subtotal = calculateSubtotal(myDishes);
+    const shipping = calculateShipping(subtotal);
+    const total = calculateTotal(subtotal, shipping);
+
+    document.getElementById("subtotal-value").textContent = subtotal.toFixed(2) + " €";
+    document.getElementById("shipping-value").textContent = shipping.toFixed(2) + " €";
+    document.getElementById("total-value").textContent = total.toFixed(2) + " €";
+    
+}
+
+
 
 
 

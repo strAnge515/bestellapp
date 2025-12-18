@@ -47,3 +47,26 @@ function generateBascetTemplate(i) {
     `
 
 }
+
+function generateTotalTemplate () {
+    
+    let content = document.getElementById("total-price-container");
+
+    content.innerHTML = `
+    
+      <section class="total-price">
+                <div id="subtotal" class="subtotal">
+                    <p>Zwischensumme</p>
+                    <P id="subtotal-value">0.00 €</P>
+                </div>
+                <div id="shipping-costs" class="shipping-costs">
+                    <p>Versandkosten</p>
+                    <P id="shipping-value">4.99 €</P>
+                </div>
+                 <div id="total-cost" class="total-cost">
+                    <p>Gesamtkosten</p>
+                    <P id="total-value">4.99 €</P>
+                </div>
+            </section>`
+
+}
