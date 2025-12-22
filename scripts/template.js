@@ -2,7 +2,7 @@
 
 
 function generateTemplate() {
-    let content = document.getElementById("main-content")
+    let content = document.getElementById("main-content");
 
     for (let i = 0; i < myDishes.length; i++) {
 
@@ -17,18 +17,18 @@ function generateTemplate() {
                         <button class="add-count" data-index="${i}">+</button>
 
                     </section>
-    `
-
+    `;
     }
 
 
 }
 
+
 function generateBascetTemplate(i) {
-    let bascetContent = document.getElementById("bascet-content");
-    const dish = myDishes[i]
+
+    const dish = myDishes[i];
     const price = myDishesPrice(dish);
-    bascetContent.innerHTML += `
+    return `
                 <ul class="bascet-list">
                     <h4 class="bascet-product-name">${dish.name}</h4>
                     <section class="bascet-product">
@@ -44,29 +44,31 @@ function generateBascetTemplate(i) {
                     </section>
                 </ul>
     
-    `
+    `;
 
 }
 
-function generateTotalTemplate () {
-    
-    let content = document.getElementById("total-price-container");
+function generateTotalTemplate(totalCountContainer) {
+
+    let content = document.getElementById(totalCountContainer);
 
     content.innerHTML = `
     
       <section class="total-price">
-                <div id="subtotal" class="subtotal">
+                <div class="subtotal">
                     <p>Zwischensumme</p>
-                    <P id="subtotal-value">0.00 €</P>
+                    <P class="subtotal-value">0.00 €</P>
                 </div>
-                <div id="shipping-costs" class="shipping-costs">
+                <div class="shipping-costs">
                     <p>Versandkosten</p>
-                    <P id="shipping-value">4.99 €</P>
+                    <P class="shipping-value">4.99 €</P>
                 </div>
-                 <div id="total-cost" class="total-cost">
+                 <div class="total-cost">
                     <p>Gesamtkosten</p>
-                    <P id="total-value">4.99 €</P>
+                    <P class="total-value">4.99 €</P>
                 </div>
-            </section>`
+            </section>
+            <button class="order-button">Jetzt bestellen</button>
+            `;
 
 }

@@ -60,12 +60,26 @@
             </section>
         </section>
         <aside class="bascet">
-            <h3 class="bascet-headline">Warenkorb</h3>
-            <div id="bascet-content"></div>
-            <section id="total-price-container"></section>
+            <div class="bascet-aside-content">
+                <h3 class="bascet-headline">Warenkorb</h3>
+                <div id="bascet-content"></div>
+                <section id="total-price-container"></section>
+            </div>
         </aside>
+        <button onclick="showDialog()" id="bascet-open-button">Warenkorb</button>
     </main>
     <footer></footer>
+
+    <dialog id="mobile-bascet">
+        <button onclick="closeDialog()" id="close-button-dialog">Warenkorb Schließen</button>
+        <div id="mobile-bascet-content"></div>
+        <div id="mobile-total-container"></div>
+    </dialog>
+
+    <dialog id="order-success-dialog">
+        <p>Ihre Bestellung ist unterwegs 🚚</p>
+        <button id="close-order-dialog">OK</button>
+    </dialog>
 
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>

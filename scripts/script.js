@@ -1,59 +1,75 @@
 
-let bascetContent = document.getElementById("bascet-content");
+
+const mobileBascetContent = document.getElementById("mobile-bascet-content");
+const mobileTotalContainer = document.getElementById("mobile-total-container");
 
 
 
 function init() {
     getFromLocalStorage();
     generateTemplate();
-    setButtonListeners(".add-count");
-    generateTotalTemplate();
+    generateTotalTemplate("total-price-container");
+    initEventDelegation();
 
-
+    document.getElementById("close-order-dialog")
+        .addEventListener("click", closeOrderDialog);
+       
 }
 
-function showBascetItems() {
-    bascetContent.innerHTML = ""
+function showBascetItems(containerId) {
+    let container = document.getElementById(containerId);
+    container.innerHTML = "";
     for (let i = 0; i < myDishes.length; i++) {
         if (myDishes[i].count > 0) {
-            generateBascetTemplate(i);
+            container.innerHTML += generateBascetTemplate(i);
 
         }
     }
-    setButtonListeners(".add-count-bascet");
-    setButtonListeners(".subtract-count-bascet");
-    setButtonListeners(".delete-button");
-
-
 
 }
 
-function setButtonListeners(selector) {
-    const buttons = document.querySelectorAll(selector);
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            const index = button.dataset.index;
+function initEventDelegation() {
+    document.getElementById("main-content").addEventListener("click", (event) => {
+        const button = event.target;
+        if (!button.classList.contains("add-count")) return;
 
-            switch (selector) {
-                case ".add-count":
-                case ".add-count-bascet":
-                    itemAmount(index, 1);
-
-                    break;
-                case ".subtract-count-bascet":
-                    itemAmount(index, -1);
-                    break
-                case ".delete-button":
-                    itemAmount(index, -myDishes[index].count);
-                    break;
-            }
-        })
-    })
+        const index = button.dataset.index;
+        itemAmount(index, 1);
+    });
+    document.getElementById("bascet-content").addEventListener("click", (event) => {
+        handleBasketClick(event);
+    });
+    document.getElementById("mobile-bascet-content").addEventListener("click", (event) => {
+        handleBasketClick(event);
+    });
 }
+
+function handleBasketClick(event) {
+    const button = event.target;
+    const index = button.dataset.index;
+
+    if (!index) return;
+
+    if (button.classList.contains("add-count-bascet")) {
+        itemAmount(index, 1);
+    }
+
+    if (button.classList.contains("subtract-count-bascet")) {
+        itemAmount(index, -1);
+    }
+
+    if (button.classList.contains("delete-button")) {
+        itemAmount(index, -myDishes[index].count);
+    }
+}
+
+
+
 
 function itemAmount(index, amount) {
     myDishes[index].count += amount;
-    showBascetItems();
+    showBascetItems("bascet-content");
+    showBascetItems("mobile-bascet-content");
     renderTotalPrice();
     localStorage.setItem("myDishes", JSON.stringify(myDishes));
 }
@@ -63,7 +79,7 @@ function getFromLocalStorage() {
     if (savedDishes) {
         myDishes = JSON.parse(savedDishes);
     }
-    showBascetItems();
+    showBascetItems("bascet-content");
 }
 
 function myDishesPrice(dish) {
@@ -92,28 +108,57 @@ function calculateTotal(subtotal, shipping) {
     return subtotal + shipping;
 }
 
-function renderBasket() {
-    const content = document.getElementById("bascet-content");
-    content.innerHTML = "";
-
-    for (let i = 0; i < myDishes.length; i++) {
-        if (myDishes[i].count > 0) {
-            generateBascetTemplate(i);
-        }
-    }
-
-}
-
 function renderTotalPrice() {
     const subtotal = calculateSubtotal(myDishes);
     const shipping = calculateShipping(subtotal);
     const total = calculateTotal(subtotal, shipping);
 
-    document.getElementById("subtotal-value").textContent = subtotal.toFixed(2) + " €";
-    document.getElementById("shipping-value").textContent = shipping.toFixed(2) + " €";
-    document.getElementById("total-value").textContent = total.toFixed(2) + " €";
-    
+    document.querySelectorAll(".subtotal-value").forEach(element => { element.textContent = subtotal.toFixed(2) + " €"; });
+    document.querySelectorAll(".shipping-value").forEach(element => { element.textContent = shipping.toFixed(2) + " €"; });
+    document.querySelectorAll(".total-value").forEach(element => { element.textContent = total.toFixed(2) + " €"; });
 }
+
+function showDialog() {
+    document.getElementById("mobile-bascet").showModal();
+    showBascetItems("mobile-bascet-content");
+    generateTotalTemplate("mobile-total-container");
+    renderTotalPrice();
+}
+
+function closeDialog() {
+    document.getElementById("mobile-bascet").close();
+}
+
+function setOrderButtonListener() {
+    const orderButtons = document.querySelectorAll(".order-button");
+
+    orderButtons.forEach(button => {
+        button.addEventListener("click", handleOrder);
+    });
+}
+
+function handleOrder() {
+    myDishes.forEach(dish => dish.count = 0);
+    
+    
+
+    showBascetItems("bascet-content");
+    showBascetItems("mobile-bascet-content");
+    renderTotalPrice();
+
+    localStorage.setItem("myDishes", JSON.stringify(myDishes));
+    closeDialog();
+    showOrderDialog();
+}
+
+function showOrderDialog() {
+    document.getElementById("order-success-dialog").showModal();
+}
+
+function closeOrderDialog() {
+    document.getElementById("order-success-dialog").close();
+}
+
 
 
 
