@@ -10,10 +10,11 @@ function init() {
     generateTemplate();
     generateTotalTemplate("total-price-container");
     initEventDelegation();
+    renderTotalPrice();
 
     document.getElementById("close-order-dialog")
         .addEventListener("click", closeOrderDialog);
-       
+
 }
 
 function showBascetItems(containerId) {
@@ -61,6 +62,8 @@ function handleBasketClick(event) {
     if (button.classList.contains("delete-button")) {
         itemAmount(index, -myDishes[index].count);
     }
+
+
 }
 
 
@@ -129,35 +132,24 @@ function closeDialog() {
     document.getElementById("mobile-bascet").close();
 }
 
-function setOrderButtonListener() {
-    const orderButtons = document.querySelectorAll(".order-button");
 
-    orderButtons.forEach(button => {
-        button.addEventListener("click", handleOrder);
+function showOrderDialog() {
+    myDishes.forEach(dish => {
+        dish.count = 0;
     });
-}
-
-function handleOrder() {
-    myDishes.forEach(dish => dish.count = 0);
-    
-    
-
+    localStorage.setItem("myDishes", JSON.stringify(myDishes));
     showBascetItems("bascet-content");
     showBascetItems("mobile-bascet-content");
     renderTotalPrice();
-
-    localStorage.setItem("myDishes", JSON.stringify(myDishes));
-    closeDialog();
-    showOrderDialog();
-}
-
-function showOrderDialog() {
+    document.getElementById("mobile-bascet").close();
     document.getElementById("order-success-dialog").showModal();
+
 }
 
 function closeOrderDialog() {
     document.getElementById("order-success-dialog").close();
 }
+
 
 
 

@@ -31,10 +31,7 @@ main {
     padding-left: 25px;
 }
 
-.headlineicon-navbar nav {
-    height: 50px;
-    width: 50px;
-}
+
 
 .burgermenu {
     width: 30px;
@@ -51,6 +48,12 @@ main {
     width: 100%;
     background: white;
     border-radius: 3px;
+}
+
+
+
+a {
+    color: black;
 }
 
 .left-side-container {
@@ -94,6 +97,12 @@ main {
     gap: 25px;
     background-color: #ebebeb;
     padding-left: 25px;
+    font-weight: bold;
+    color: orange;
+}
+
+.arrow-food-navigation {
+    font-size: 33px;
 }
 
 .main-section {
@@ -172,3 +181,20 @@ main {
     position: sticky;
     top: 0;
 }
+
+.dividing-line {
+    height: 2px;
+    background-color: #dddddd;
+    width: 100%;
+}
+
+footer {
+    height: 150px;
+    width: 100%;
+    background-color:  #ebebeb;
+}
+
+
+
+
+

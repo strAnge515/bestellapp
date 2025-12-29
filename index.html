@@ -18,11 +18,6 @@
 <body onload="init()">
     <header class="headlineicon-navbar">
         <img src="./assets/icons/Logo/Logo.png" alt="logo">
-        <a class="burgermenu" href="">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
     </header>
 
     <main>
@@ -38,23 +33,24 @@
             <div class="title-overflow-img">
                 <h1>Pizza Paradiso </h1>
             </div>
-            <img src="" alt="">
+          
             <nav class="navigation-food">
-                <p>&rsaquo;</p>
-                <a href="">Hauptgerichte</a>
-                <a href="">Beilage</a>
+                <p class="arrow-food-navigation">&rsaquo;</p>
+                <a href="#hauptgerichte">Hauptgerichte</a>
+                <a href="#beilagen">Beilage</a>
             </nav>
             <section class="main-section">
                 <div>
-                    <img src="./assets/img/Special Menu.jpg" alt="img-hauptgerichte">
-                    <h2>Hauptgerichte</h2>
+                    <img id="img-main-container" src="./assets/img/Special Menu.jpg" alt="img-hauptgerichte">
+                    <h2 id="hauptgerichte">Hauptgerichte</h2>
                 </div>
 
                 <section id="main-content"></section>
 
                 <section class="beilagen">
                     <img src="./assets/img/Beilagen.jpg" alt="beilagen-img">
-                    <h2>Beilagen</h2>
+                    <h2 id="beilagen">Beilagen</h2>
+                    <b>BEILAGEN FOLGEN NOCH</b>
                 </section>
 
             </section>
@@ -63,22 +59,35 @@
             <div class="bascet-aside-content">
                 <h3 class="bascet-headline">Warenkorb</h3>
                 <div id="bascet-content"></div>
+                <div class="dividing-line"></div>
                 <section id="total-price-container"></section>
             </div>
         </aside>
         <button onclick="showDialog()" id="bascet-open-button">Warenkorb</button>
     </main>
-    <footer></footer>
+    <footer>
+        <a href="">Impressum</a>
+        <p>Kontakt: 0175/123456</p>
+        <p>E-Mail: pizza.paradiso@gmail.com</p>
+        <p>Adresse: MaxMustermannStr. 35</p>
+    </footer>
 
     <dialog id="mobile-bascet">
-        <button onclick="closeDialog()" id="close-button-dialog">Warenkorb Schließen</button>
-        <div id="mobile-bascet-content"></div>
-        <div id="mobile-total-container"></div>
+        <div class="mobile-bascet-container">
+            <button class="order-button" onclick="closeDialog()" id="close-button-dialog"><span
+                    class="text">Schließen</span></button>
+            <div id="mobile-bascet-content"></div>
+            <div id="mobile-total-container"></div>
+        </div>
     </dialog>
 
     <dialog id="order-success-dialog">
-        <p>Ihre Bestellung ist unterwegs 🚚</p>
-        <button id="close-order-dialog">OK</button>
+        <div class="order-success-container">
+            <p class="order-success-text">Ihre Bestellung ist unterwegs</p>
+            <img src="./assets/icons/Logo/lieferwagen.png" alt="Lieferwagenbild">
+
+            <button class="order-button" id="close-order-dialog"><span class="text">Ok</span></button>
+        </div>
     </dialog>
 
     <script src="./scripts/template.js"></script>
@@ -89,3 +98,5 @@
 </body>
 
 </html>
+<a href="https://www.flaticon.com/de/kostenlose-icons/lieferwagen" title="lieferwagen Icons">Lieferwagen Icons erstellt
+    von Freepik - Flaticon</a>

@@ -2,6 +2,10 @@
     width: 20%;
 }
 
+#bascet-open-button {
+    display: none;
+}
+
 .bascet-aside-content {
     position: sticky;
     top: 0;
@@ -14,6 +18,7 @@
 .bascet-product-name {
     padding-left: 5px;
 }
+
 .bascet-product {
     display: flex;
     padding: 5px;
@@ -43,18 +48,117 @@
 .subtotal {
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px 0 20px;
+    padding: 5px 20px 5px 20px;
+    color: #777575;
 }
 
 .shipping-costs {
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px 0 20px;
+    padding: 5px 20px 5px 20px;
+    color: #777575;
 }
 
 .total-cost {
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px 0 20px;
+    padding: 5px 20px 5px 20px;
+    font-weight: bold;
 }
 
+.order-button {
+    /* general settings order button*/
+    margin: 5px 20px 5px 20px;
+    height: 34px;
+}
+
+.order-button {
+    /* order button design */
+    align-items: center;
+    background-image: linear-gradient(144deg, #e5990f, #ebbd0d 50%, #000000);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+
+}
+
+.order-button:active,
+.order-button:hover {
+    outline: 0;
+}
+
+.order-button span {
+    background-color: rgb(5, 6, 45);
+    border-radius: 6px;
+    width: 136px;
+    height: 28px;
+    transition: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.order-button:hover span {
+    background: none;
+}
+
+#order-success-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.order-success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.order-success-container img {
+    height: 200px;
+}
+
+.order-success-text {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#mobile-bascet {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 250px;
+}
+
+.mobile-bascet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mobile-bascet-content {
+    height: 388px;
+    width: 220px;
+    overflow: auto;
+}

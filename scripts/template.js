@@ -63,12 +63,13 @@ function generateTotalTemplate(totalCountContainer) {
                     <p>Versandkosten</p>
                     <P class="shipping-value">4.99 €</P>
                 </div>
+                   
                  <div class="total-cost">
                     <p>Gesamtkosten</p>
                     <P class="total-value">4.99 €</P>
                 </div>
             </section>
-            <button class="order-button">Jetzt bestellen</button>
+            <button class="order-button" role="button"><span class="text" onclick="showOrderDialog()">Jetzt Bestellen</span></button>
             `;
 
 }
