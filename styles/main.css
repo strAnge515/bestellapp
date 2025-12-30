@@ -1,8 +1,6 @@
 body {
     max-width: 1920px;
-    display: flex;
-    flex-direction: column;
-
+    margin: auto;
 }
 
 h2 {
@@ -192,12 +190,20 @@ footer {
     height: 150px;
     width: 100%;
     background-color:  #ebebeb;
-    padding-left: 25px;
+    margin-left: 25px;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
+}
+
+footer p  {
+    padding-left: 10px;
+}
+
+footer a {
+    padding-left: 10px;
 }
 
 
