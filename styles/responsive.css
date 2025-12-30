@@ -1,0 +1,74 @@
+@media (max-width: 1085px) {
+    .bascet {
+        display: none;
+    }
+
+    .left-side-container {
+        width: 100%;
+    }
+
+    #bascet-open-button {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        background-color: #ffa500;
+        font-size: 25px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #bascet-open-button:hover {
+        color: black;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-section {
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 860px) {
+    h1 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    .overflow-img{
+       height: 150px;
+        border-radius: 50px;
+    }
+
+    .headlineicon-navbar {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 460px) {
+h1 {
+    font-size: 23px;
+    display: flex;
+        justify-content: center;
+    }
+
+
+.overflow-img{
+       height: 120px;
+        border-radius: 25px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}

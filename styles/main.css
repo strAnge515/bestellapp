@@ -192,7 +192,14 @@ footer {
     height: 150px;
     width: 100%;
     background-color:  #ebebeb;
+    padding-left: 25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
 }
+
 
 
 
