@@ -190,7 +190,7 @@ footer {
     height: 150px;
     width: 100%;
     background-color:  #ebebeb;
-    margin-left: 25px;
+    padding-left: 25px;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -198,13 +198,7 @@ footer {
     gap: 5px;
 }
 
-footer p  {
-    padding-left: 10px;
-}
 
-footer a {
-    padding-left: 10px;
-}
 
 
 
