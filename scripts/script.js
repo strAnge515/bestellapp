@@ -1,23 +1,12 @@
-
-
 const mobileBascetContent = document.getElementById("mobile-bascet-content");
 const mobileTotalContainer = document.getElementById("mobile-total-container");
-
-
 
 function init() {
     getFromLocalStorage();
     renderDishes();
     renderTotalTemplate("total-price-container");
-    
     renderTotalPrice();
-
-    document.getElementById("close-order-dialog")
-        .addEventListener("click", closeOrderDialog);
-
 }
-
-
 
 function renderDishes() {
     let content = document.getElementById("main-content");
@@ -47,33 +36,16 @@ function renderTotalTemplate(totalCountContainer) {
     content.innerHTML = generateTotalTemplate();
 }
 
+function changeItemAmount(i, amount) {
+    myDishes[i].count += amount
+    renderItems();
+}
 
-
-function subtractItem(i) {
-    myDishes[i].count -= 1;
+function renderItems() {
     renderBascetItems("bascet-content");
     renderBascetItems("mobile-bascet-content");
     renderTotalPrice();
 }
-
-function addItem(i) {
-    myDishes[i].count += 1;
-    renderBascetItems("bascet-content");
-    renderBascetItems("mobile-bascet-content");
-    renderTotalPrice();
-}
-
-
-function deleteItem(i) {
-    myDishes[i].count = 0;
-    renderBascetItems("bascet-content");
-    renderBascetItems("mobile-bascet-content");
-    renderTotalPrice();
-}
-
-
-
-
 
 function itemAmount(index, amount) {
     myDishes[index].count += amount;

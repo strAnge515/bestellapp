@@ -10,7 +10,7 @@ function generateTemplate(i) {
                             <p class="main-dishes-price">${myDishes[i].price.toFixed(2)} €</p>
                         </div>
                         
-                        <button onclick="addItem(${i})" class="add-count" data-index="${i}">+</button>
+                        <button onclick="changeItemAmount(${i}, 1)" class="add-count" data-index="${i}">+</button>
 
                     </section>
     `;
@@ -28,13 +28,13 @@ function generateBascetTemplate(dish, price, i) {
                     <h4 class="bascet-product-name">${dish.name}</h4>
                     <section class="bascet-product">
                         <div class="bascet-count">
-                            <button onclick="subtractItem(${i})" class="subtract-count-bascet" data-index="${i}">-</button>
+                            <button onclick="changeItemAmount(${i}, -1)" class="subtract-count-bascet" data-index="${i}">-</button>
                             <p>${dish.count}</p>
-                            <button onclick="addItem(${i})" class="add-count-bascet" data-index="${i}">+</button>
+                            <button onclick="changeItemAmount(${i}, 1)" class="add-count-bascet" data-index="${i}">+</button>
                         </div>
                         <div class="bascet-price">
                             <p class="my-dishes-price">${price} €</p>
-                            <button onclick="deleteItem(${i})" class="delete-button" data-index="${i}">&#128465;</button>
+                            <button onclick="changeItemAmount(${i}, 0)" class="delete-button" data-index="${i}">&#128465;</button>
                         </div>
                     </section>
                 </ul>
